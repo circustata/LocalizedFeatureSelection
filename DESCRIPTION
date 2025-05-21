@@ -1,0 +1,19 @@
+Package: knockoffFS
+Title: Feature Selection with Knockoffs
+Version: 0.1.0
+Authors@R: 
+    person("Xiaoxia", "Liu", , "xxliu@stanford.edu", role = c("aut", "cre"))
+Description: A package for feature selection using knockoff methods.
+    This package provides tools for generating knockoffs, training models,
+    and performing feature selection.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.3
+Imports: 
+    stats,
+    utils
+Suggests: 
+    testthat (>= 3.0.0),
+    knitr,
+    rmarkdown 
