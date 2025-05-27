@@ -63,7 +63,7 @@ library(LFS)
 # of the residuals to ensure valid knockoffs construction. Specifically, we iteratively increase r 
 # and calculate the off-diagonal elements of the residual covariance matrix until their average 
 # value falls below the predefined threshold (default: 0.01).
-X_k <- knockoffs_generate(X, threshold = 0.01)
+X_k <- knockoffs_generate(X, threshold = 0.01)$X_k
 
 # 2. Model training 
 model <- model_training(X, X_k, y)
