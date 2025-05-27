@@ -52,6 +52,8 @@ load("Data/scRNA/y.Rdata")
 
 ### Example
 
+library(LFS)
+
 ```r
 # The input data should be a matrix X where columns represent features and rows represent samples, along with response variable y.
 
