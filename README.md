@@ -52,9 +52,10 @@ load("Data/scRNA/y.Rdata")
 
 ### Example
 
-library(LFS)
 
 ```r
+library(LFS)
+
 # The input data should be a matrix X where columns represent features and rows represent samples, along with response variable y.
 
 # 1. Generate knockoffs for the data using IPAD procedure
