@@ -37,7 +37,6 @@ To generate simulation data, run:
 ```r
 source("Data/Simulation/simulation_data_generation.R")
 ```
-The generated data will be saved in `Data/Simulation/`.
 
 ## Example: Load Data
 
