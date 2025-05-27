@@ -1,6 +1,6 @@
 # LocalizedFeatureSelection(LFS)
 
-An R package for feature selection using knockoff methods.
+An R package for localized feature selection.
 
 ## Installation
 
