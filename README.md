@@ -23,6 +23,34 @@ The package provides three main functionalities:
 2. Model Training
 3. Localized Feature Selection
 
+## Data Organization
+
+- `Data/Simulation/`: Contains simulation datasets and the data generation script.
+  - `X.RData`, `y.RData`, `X.csv`, `y.csv`: Simulated feature matrices and response variables.
+  - `simulation_data_generation.R`: Script to generate simulation data.
+- `Data/scRNA/`: Contains real single-cell RNA-seq datasets.
+  - `X.Rdata`, `y.Rdata`: Real data matrices and response variables.
+
+## Simulation
+
+To generate simulation data, run:
+```r
+source("Data/Simulation/simulation_data_generation.R")
+```
+The generated data will be saved in `Data/Simulation/`.
+
+## Example: Load Data
+
+```r
+# Load simulation data
+load("Data/Simulation/X.RData")
+load("Data/Simulation/y.RData")
+
+# Load real scRNA-seq data
+load("Data/scRNA/X.Rdata")
+load("Data/scRNA/y.Rdata")
+```
+
 ### Example
 
 ```r
