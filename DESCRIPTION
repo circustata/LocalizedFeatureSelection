@@ -5,7 +5,7 @@ Authors@R:
     person("Xiaoxia", "Liu", , "xxliu@stanford.edu", role = c("aut", "cre"))
 Description: A package for feature selection using knockoff methods.
     This package provides tools for generating knockoffs, training models,
-    and performing feature selection.
+    and performing localized feature selection.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
