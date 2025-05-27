@@ -1,5 +1,5 @@
-Package: knockoffFS
-Title: Feature Selection with Knockoffs
+Package: LSF
+Title: Localized Feature Selection
 Version: 0.1.0
 Authors@R: 
     person("Xiaoxia", "Liu", , "xxliu@stanford.edu", role = c("aut", "cre"))
