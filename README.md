@@ -1,4 +1,4 @@
-# knockoffFS
+# LocalizedFeatureSelection(LFS)
 
 An R package for feature selection using knockoff methods.
 
