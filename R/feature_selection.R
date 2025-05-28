@@ -133,7 +133,8 @@ feature_selection <- function(trained_model, X, X_k, fdr_threshold = 0.1) {
   fSX <- create.fSX(as.matrix(cbind(X, X_k)))
   # Main effects and interactions
   beta.1st <- beta[(1:ncol(fSX)), , drop = FALSE]
-  T.1st <- sapply(1:(ncol(X) * 2), get.T.j.fSX, x = cbind(X, X_k), beta = beta.1st)
+  beta.1st_now <-  matrix(beta.1st, nrow = nrow(as.matrix(cbind(X, X_k))), ncol = nrow(beta.1st), byrow = TRUE)
+  T.1st<- beta.1st_now[,1:ncol(as.matrix(cbind(X, X_k)))]+2*as.matrix(cbind(X, X_k))*beta.1st_now[,-(1:ncol(as.matrix(cbind(X, X_k))))]
   beta.2nd <- beta[-(1:ncol(fSX)), , drop = FALSE]
   fIX <- create.fIX(as.matrix(cbind(X, X_k)))
   T.2nd <- sapply(1:(ncol(X) * 2), get.T.j.fIX, x = cbind(X, X_k), beta = beta.2nd)
