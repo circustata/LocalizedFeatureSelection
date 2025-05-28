@@ -121,7 +121,7 @@ model_training <- function(X, X_k, y, ...) {
   cv.fit.2nd <- glmnet::glmnet(cbind(fSX, fIX), y, standardize = TRUE, alpha = 1)
   prediction <- cbind(fSX, fIX) %*% cv.fit.2nd$beta
   y_replicate <- matrix(y, nrow = length(y), ncol = ncol(prediction), byrow = FALSE)
-  BIC_vec <- (nrow(X) * log(colMeans(as.matrix((prediction - y_replicate)^2)))) + ((colSums(cv.fit.2nd$beta != 0)) * log(nrow(X)))
+  BIC_vec <- (nrow(X) * log(colMeans(as.matrix((prediction - y_replicate)^2)))) + ((colSums(as.matrix(cv.fit.2nd$beta != 0))) * log(nrow(X)))
   N_BIC <- which.min(BIC_vec)
   beta_current <- cv.fit.2nd$beta[-(1:ncol(fSX)), , drop = FALSE]
   beta.1st <- as.matrix(beta_current[, N_BIC])
