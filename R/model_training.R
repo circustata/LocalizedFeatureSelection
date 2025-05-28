@@ -114,14 +114,13 @@ model_training <- function(X, X_k, y, ...) {
   cv.fit.first <- glmnet::glmnet(fSX, y, standardize = TRUE, alpha = 1, lambda = cv.fit.1st$lambda[first_hit_50])
   N <- sum(tau != 0)
   index.2nd <- intersect(order.index[1:N], which(tau != 0))
-  index.2nd <- unique(c(index.2nd, 101, 102, 103)) # fallback indices
   index.2nd_k <- index.2nd
   # Create interaction terms for selected features
   fIX <- create.fIX(as.matrix(cbind(X[, index.2nd, drop = FALSE], X_k[, index.2nd_k, drop = FALSE])))
   # Second-step Lasso
   cv.fit.2nd <- glmnet::glmnet(cbind(fSX, fIX), y, standardize = TRUE, alpha = 1)
   prediction <- cbind(fSX, fIX) %*% cv.fit.2nd$beta
-  y_replicate <- matrix(y, nrow = length(y), ncol = 100, byrow = FALSE)
+  y_replicate <- matrix(y, nrow = length(y), ncol = ncol(X), byrow = FALSE)
   BIC_vec <- (nrow(X) * log(colMeans((prediction - y_replicate)^2))) + ((colSums(cv.fit.2nd$beta != 0)) * log(nrow(X)))
   N_BIC <- which.min(BIC_vec)
   beta_current <- cv.fit.2nd$beta[-(1:ncol(fSX)), , drop = FALSE]
