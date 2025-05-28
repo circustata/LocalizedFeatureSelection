@@ -120,7 +120,7 @@ model_training <- function(X, X_k, y, ...) {
   # Second-step Lasso
   cv.fit.2nd <- glmnet::glmnet(cbind(fSX, fIX), y, standardize = TRUE, alpha = 1)
   prediction <- cbind(fSX, fIX) %*% cv.fit.2nd$beta
-  y_replicate <- matrix(y, nrow = length(y), ncol = ncol(X), byrow = FALSE)
+  y_replicate <- matrix(y, nrow = length(y), ncol = ncol(prediction), byrow = FALSE)
   BIC_vec <- (nrow(X) * log(colMeans((prediction - y_replicate)^2))) + ((colSums(cv.fit.2nd$beta != 0)) * log(nrow(X)))
   N_BIC <- which.min(BIC_vec)
   beta_current <- cv.fit.2nd$beta[-(1:ncol(fSX)), , drop = FALSE]
