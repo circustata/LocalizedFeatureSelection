@@ -8,6 +8,7 @@
 #' @return A list containing the trained model and other relevant information
 #' @export
 #'
+#' @importFrom glmnet glmnet cv.glmnet
 #' @examples
 #' # Train model with knockoffs
 #' model <- model_training(X, X_k, y)
